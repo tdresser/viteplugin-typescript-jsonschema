@@ -3,7 +3,7 @@ import * as TJS from 'typescript-json-schema';
 import { resolve } from 'path';
 
 // These need to be converted from regexes to something more stateful, e.g., to handle parens within the arguments to DEDUCE_SCHEMA.
-const imperativeRegistrationRegex = /DEDUCE_SCHEMA\(["']([^)]*)["']\)/ms;
+const imperativeRegistrationRegex = /DEDUCE_SCHEMA\(["']([^)]*)["']\)/gms;
 
 const declarativeSchemaRegex =
   /<script type="tool-registration">(.*?)<\/script>/ms;
@@ -13,22 +13,12 @@ const buildJSONSchemasPlugin = () => {
   const schemaGenerator = TJS.buildGenerator(program);
   return {
     name: 'build-json-schemas-plugin',
-    enforce: 'pre',
     transform(src: string, id: string) {
       if (/\.ts$/.test(id)) {
-        const matches = src.match(imperativeRegistrationRegex);
-        if (!matches) {
-          return src;
-        }
-        const typename = matches[1];
-        const schema = schemaGenerator?.getSchemaForSymbol(typename);
-        console.log('TEST');
-        // @ts-ignore
-        src = src.replace(
-          imperativeRegistrationRegex,
-          JSON.stringify(schema, null, 2)
-        );
-        return src;
+        return src.replaceAll(imperativeRegistrationRegex, (a, typename) => {
+          const schema = schemaGenerator?.getSchemaForSymbol(typename);
+          return JSON.stringify(schema, null, 2);
+        });
       }
     },
     transformIndexHtml(html: string) {
