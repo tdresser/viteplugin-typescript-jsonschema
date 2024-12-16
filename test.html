@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Vite plugin generating JSONSchema</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      #output {
+        white-space: pre;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
-    TEST
+    <p>This example modifies typescript to embed a JSON schema.</p>
+    <a href="index.html"><h1>Declarative Example</h1></a>
+    <div id="output"></div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/register.ts"></script>
   </body>

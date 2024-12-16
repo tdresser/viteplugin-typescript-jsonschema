@@ -11,6 +11,7 @@ const declarativeSchemaRegex =
 const buildJSONSchemasPlugin = () => {
   const program = TJS.getProgramFromFiles([resolve('src/main.ts')], {});
   const schemaGenerator = TJS.buildGenerator(program);
+  console.log(schemaGenerator?.getUserSymbols());
   return {
     name: 'build-json-schemas-plugin',
     transform(src: string, id: string) {

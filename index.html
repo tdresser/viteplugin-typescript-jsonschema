@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      head {
+        display: block;
+      }
+      script {
+        display: block;
+        visibility: visible;
+        white-space: pre;
+        float: left;
+      }
+    </style>
     <script type="tool-registration">
       {
         "functionName": "add",
@@ -10,10 +25,18 @@
         "params": "AddParams"
       }
     </script>
-    <title>Vite + TS</title>
+    <script type="tool-registration">
+      {
+        "functionName": "negate",
+        "description": "Negates the input",
+        "params": "NegateParams"
+      }
+    </script>
+    <title>Vite plugin generating JSONSchema</title>
   </head>
   <body>
-    <div id="app"></div>
+    <p>This example generates a JSON schema and places it in the head.</p>
+    <a href="test.html"><h1>Imperative Example</h1></a>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
