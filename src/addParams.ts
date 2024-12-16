@@ -1,6 +1,6 @@
 export interface AddParams {
   /** The first number. */
-  a: number
+  a: number;
   /** The second number. */
-  b: number
+  b: number;
 }

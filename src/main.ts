@@ -1,5 +1,5 @@
-import { AddParams } from './addParams'
+import { AddParams } from './addParams';
 
 export function add(v: AddParams): number {
-  return v.a + v.b
+  return v.a + v.b;
 }
