@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      head {
+        display: block;
+        float: right;
+      }
+      script {
+        display: block;
+        visibility: visible;
+        white-space: pre;
+        float: left;
+      }
+      html {
+        overflow: clip;
+      }
+      body,
+      head {
+        margin: 2em;
+      }
+    </style>
+    <script type="tool-registration">{
+  "functionName": "add",
+  "description": "Adds two numbers",
+  "params": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "description": "The first number.",
+        "type": "number"
+      },
+      "b": {
+        "description": "The second number.",
+        "type": "number"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}</script>
+    <script type="tool-registration">{
+  "functionName": "negate",
+  "description": "Negates the input",
+  "params": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "description": "The number to negate.",
+        "type": "number"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}</script>
+    <title>Vite plugin generating JSONSchema</title>
+    <script type="module" crossorigin src="/assets/main-DV6abGeG.js"></script>
+  </head>
+  <body>
+    <p>This example generates a JSON schema and places it in the head.</p>
+    <a href="test.html"><h1>Imperative Example</h1></a>
+  </body>
+</html>
