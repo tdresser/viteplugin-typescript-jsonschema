@@ -43,6 +43,7 @@ const buildJSONSchemasPlugin = () => {
 
 export default defineConfig({
   plugins: [buildJSONSchemasPlugin()],
+  base: '/viteplugin-typescript-jsonschema/',
   build: {
     outDir: 'docs',
     emptyOutDir: true,
